@@ -9,9 +9,11 @@
   <body>
     <div id="app"></div>
     <template id="my-app">
-      <!-- v-once -->
+      <!-- v-pre: 显示原始标签中的内容 -->
       <h2>{{message}}</h2>
+      <h2 v-pre>{{message}}</h2>
       <h2 v-html="message"></h2>
+      <h2 v-pre v-html="message">45245</h2>
     </template>
     <script src="../js/vue3.js"></script>
     <script>

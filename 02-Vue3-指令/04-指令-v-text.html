@@ -9,18 +9,11 @@
   <body>
     <div id="app"></div>
     <template id="my-app">
-      <!-- v-once -->
+      <!-- v-text: 与 {{}} 作用相同 -->
       <h2>{{count}}</h2>
       <h2 v-text="count"></h2>
       <h2 v-text="count">{{count}}</h2>
       <h2 v-text="count">52452526</h2>
-      <!-- <h2>{{count * 2}}</h2>
-
-      <div v-once>
-        <h2>{{count}}</h2>
-        <h2>{{count * 2}}</h2>
-      </div>
-      <button @click="count++">+1</button> -->
     </template>
     <script src="../js/vue3.js"></script>
     <script>

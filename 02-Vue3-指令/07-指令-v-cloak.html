@@ -5,21 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <template id="my-app">
-      <!-- v-once: 指定元素或者组件只渲染一次 -->
-      <!-- 当数据发生变化时,元素或者组件以及其所有的子元素将视为静态内容并且跳过 -->
-      <!-- 该指令可以用于性能优化 -->
-      <h2>{{count}}</h2>
-      <h2>{{count * 2}}</h2>
-
-      <div v-once>
-        <h2>{{count}}</h2>
-        <h2>{{count * 2}}</h2>
-      </div>
-      <button @click="count++">+1</button>
+      <!-- v-cloak: 此指令保持在元素上直到关联组件实例结束编译  -->
+      <!-- 和CSS 规则如[v-cloak] { display: none }
+      一起用时，这个指令可以隐藏未编译的Mustache 标签直到组件实例准备完毕。 -->
+      <h2 v-cloak>{{message}}</h2>
+      <h2>{{message}}</h2>
     </template>
     <script src="../js/vue3.js"></script>
     <script>
@@ -27,7 +26,8 @@
         template: '#my-app',
         data() {
           return {
-            message: 'Hello World',
+            message:
+              '<span style="background-color: pink; color: #000">Message</span>',
             count: 100
           }
         }
