@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="counter"></h2>
+    <button id="addBtn">+1</button>
+    <button id="subBtn">-1</button>
+    <!-- <script src="../js/vue3.js"></script> -->
+    <script>
+      const counter = document.querySelector('.counter')
+      const addBtn = document.getElementById('addBtn')
+      const subBtn = document.getElementById('subBtn')
+
+      let count = 0
+
+      counter.innerHTML = count
+
+      addBtn.onclick = function (e) {
+        count++
+        counter.innerHTML = count
+      }
+
+      subBtn.onclick = function (e) {
+        count--
+        counter.innerHTML = count
+      }
+    </script>
+  </body>
+</html>

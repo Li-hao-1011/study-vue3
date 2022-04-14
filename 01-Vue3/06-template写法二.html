@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="why">
+        <div>
+            <h2>{{counter}}</h2>
+            <button @click="addBtn">+1...</button>
+            <button @click="subBtn">-1...</button>  
+            <button @click="aBtn">a...</button>  
+        </div>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+        Vue.createApp({
+            template: '#why',
+            data() {
+                return {
+                    counter: 100
+                }
+            },
+            methods:{
+                addBtn(){
+                    this.counter++
+                    console.log(this);
+                },
+                subBtn(){
+                    this.counter--
+                },
+                aBtn: ()=>{
+                    console.log(this);
+                }
+            }
+        }).mount('#app')
+    </script>
+</html>

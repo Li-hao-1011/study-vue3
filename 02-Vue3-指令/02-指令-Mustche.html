@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2>{{ message }}</h2>
+      <h2>{{ count * 10 }}</h2>
+      <h2>{{ message.split(' ').reverse().join(' ') }}</h2>
+      <h2>{{ getStr(message) }}</h2>
+      <h2>{{ isShow ? 'hahaha' :'123' }}</h2>
+      <button @click="changeBtn">改变</button></button>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello World',
+            count: 10,
+            isShow: true
+          }
+        },
+        methods: {
+          getStr(str) {
+            return str.split(' ').reverse().join(' ')
+          },
+          changeBtn(){
+              this.isShow = !this.isShow
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>
