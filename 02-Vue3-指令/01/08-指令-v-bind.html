@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- vue允许tenplate中有多个根元素 -->
+    <template id="my-app">
+      <!-- v-bind:   -->
+      <img v-bind:src="imgUrl" alt="" />
+      <!-- 简写为 ':' --->
+      <a :href="badu">百度一下</a>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message:
+              '<span style="background-color: pink; color: #000">Message</span>',
+            count: 100,
+            badu: 'http://www.baidu.com',
+            imgUrl: 'https://avatars.githubusercontent.com/u/44761321?v=4'
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- vue允许tenplate中有多个根元素 -->
+    <template id="my-app">
+      <!-- v-bind -->
+      <!-- 对象语法 -->
+      <div :style="[styleObj1, styleObj2]">8</div>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            className: 'color-000',
+            count: true,
+            pink: 'pink',
+            activeClass: { pink: true, box: true, 'color-000': true },
+            styleObj1: {
+              color: 'red',
+              fontSize: '30px'
+            },
+            styleObj2: {
+              width: '50px',
+              height: '50px',
+              'background-color': 'pink'
+            }
+          }
+        },
+        methods: {
+          changeBtn() {
+            this.count = !this.count
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

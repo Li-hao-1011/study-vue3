@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+      .pink {
+        background-color: pink;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 10px auto 0;
+      }
+      .color-000 {
+        color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- vue允许tenplate中有多个根元素 -->
+    <template id="my-app">
+      <!-- v-bind -->
+      <!-- 对象语法 -->
+      <!-- <button @click="changeBtn">切换</button> -->
+      <!-- <div :class="className">哈哈哈</div> -->
+      <!-- 一个键值对 -->
+      <!-- <div :class="{'pink':count}">哈哈哈</div> -->
+      <!-- 多个键值对 -->
+      <!-- <div :class="{'pink':count}" class="box color-000">哈哈哈</div> -->
+
+      <!-- <div :class="activeClass">哈哈哈152</div> -->
+
+      <!-- 数组语法 -->
+      <div :class="['abc','box', pink, count ? 'active' : 'unactive']"></div>
+
+      <!-- 使用 三元运算符 -->
+      <div :class="['abc','box', pink, count ? 'active' : 'unactive']"></div>
+
+      <!-- 数组中结合对象语法 -->
+      <div :class="['abc','box', pink, {isActive: count}]"></div>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            className: 'color-000',
+            count: true,
+            pink: 'pink',
+            activeClass: { pink: true, box: true, 'color-000': true }
+          }
+        },
+        methods: {
+          changeBtn() {
+            this.count = !this.count
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

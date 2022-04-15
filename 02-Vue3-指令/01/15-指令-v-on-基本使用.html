@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <!-- v-on -->
+      <!-- 完整事件：v-on:监听的事件="事件" -->
+      <div class="box" v-on:click="btnClick">按钮1</div>
+      <div class="box" v-on:mousemove="mouseMove">按钮2</div>
+
+      <!-- 绑定表达式 -->
+      <button @click="count++">{{count}}</button>
+
+      <!-- 绑定两个事件 -->
+      <div class="box" v-on="{click: btnClick, mousemove: mouseMove}">
+        绑定两个事件1
+      </div>
+      <div class="box" @="{click: btnClick, mousemove: mouseMove}">
+        绑定两个事件2
+      </div>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello World',
+            count: 100
+          }
+        },
+        methods: {
+          btnClick() {
+            console.log('按钮1点击了')
+          },
+          mouseMove() {
+            console.log('按钮2移动了')
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

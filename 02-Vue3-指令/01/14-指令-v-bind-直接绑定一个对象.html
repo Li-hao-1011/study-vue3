@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- vue允许tenplate中有多个根元素 -->
+    <template id="my-app">
+      <!-- v-bind -->
+      <!-- 通过 v-bind 直接绑定对象 -->
+      <!-- 对象会被拆解成属性 -->
+      <div v-bind="info">哈哈哈</div>
+      <div :="info">哈哈哈</div>
+    </template>
+
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            info: {
+              name: 'lh',
+              age: 18,
+              height: 1.88
+            }
+          }
+        },
+        methods: {
+          changeBtn() {
+            this.count = !this.count
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>
