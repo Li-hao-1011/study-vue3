@@ -5,44 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      .box {
-        width: 200px;
-        height: 200px;
-        background-color: pink;
-      }
-    </style>
   </head>
   <body>
     <div id="app"></div>
     <template id="my-app">
-      <!-- v-on -->
-      <!-- 默认会事件冒泡,使用 [.stop] 阻止事件冒泡 -->
-      <div class="box" v-on:click="divClick2">
-        <button @click.stop="btnClick">Button</button>
-      </div>
-
-      <input type="text" @keyup.enter="keyUp" />
+      <button @click="changeBtn">切换</button>
+      <h2 v-if="isShow">{{message}}</h2>
     </template>
     <script src="../../js/vue3.js"></script>
     <script>
+      /* 
+    -- v-if
+    -- v-else
+    -- v-else-if
+    -- v-show
+    */
       const App = {
         template: '#my-app',
         data() {
           return {
             message: 'Hello World',
-            count: 100
+            isShow: true
           }
         },
         methods: {
-          btnClick() {
-            console.log('btnClick')
-          },
-          divClick2(name) {
-            console.log('divClick')
-          },
-          keyUp() {
-            console.log('enter keyup')
+          changeBtn() {
+            this.isShow = !this.isShow
           }
         }
       }

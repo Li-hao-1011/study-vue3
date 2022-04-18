@@ -9,8 +9,14 @@
   <body>
     <div id="app"></div>
     <template id="my-app">
-      <!-- Mustche 双大括号语法 -->
-      <h2>{{message}}</h2>
+      <!-- <h2>{{message}}</h2> -->
+      <ul v-for="(num, index) in count">
+        <li>{{num}}.{{ num * 5}}</li>
+      </ul>
+
+      <ul v-for="(value, key, index) in obj">
+        <li>{{index}}---{{key}}---{{ value }}</li>
+      </ul>
     </template>
     <script src="../../js/vue3.js"></script>
     <script>
@@ -18,7 +24,13 @@
         template: '#my-app',
         data() {
           return {
-            message: 'Hello World'
+            message: 'Hello World',
+            count: 10,
+            obj: {
+              name: 'lhhh',
+              age: 18,
+              address: 'xian'
+            }
           }
         }
       }
