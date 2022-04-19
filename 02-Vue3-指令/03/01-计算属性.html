@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- <h2> {{ firstName + lastName }} </h2>
+      <h2> {{ score >= 60 ? '及格' : '不及格' }} </h2>
+      <h2> {{ message.split(' ').reverse().join(' ') }} </h2> -->
+      <button @click="edit">修改fristName</button>
+      <!-- <h2>{{getFullName()}}</h2>
+      <h2>{{getFullName()}}</h2>
+      <h2>{{getFullName()}}</h2> -->
+      <!-- <h2>{{getScore()}}</h2>
+      <h2>{{ getMessage()}}</h2> -->
+      <h2>{{ fullName }}</h2>
+      <h2>{{ fullName_1 }}</h2>
+      <!-- <h2>{{ fullName }}</h2> -->
+      <!-- <h2>{{ result }}</h2>
+      <h2>{{ reverseMessage }}</h2> -->
+
+    </template>
+    <script src="../../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return { 
+            message: 'Hello World',
+
+            firstName:'Coder',
+            lastName:'Why',
+
+            score: 56,
+          }
+        },
+        computed: {
+          fullName(){
+            console.log('计算属性');
+            return this.firstName + ' ' + this.lastName
+          },
+          fullName_1: {
+            get(){
+              return this.firstName + ' ' + this.lastName
+            },
+            set(newValue){
+              console.log(newValue);
+              this.firstName = newValue[0]
+              this.lastName = newValue[2]
+            }
+          },
+          result(){
+            return this.score >= 60 ? '及格' : '不及格'
+          },
+          reverseMessage(){
+            return this.message.split('').reverse().join(' ')
+          }
+        },
+        methods: {
+          getFullName(){
+            console.log('方法');
+
+            return this.firstName + ' ' + this.lastName
+          },
+          getScore(){
+            return this.score >= 60 ? '及格' : '不及格'
+          },
+          getMessage(){
+            return this.message.split(' ').reverse().join(' ')
+          }
+          ,
+          edit(){
+            // this.firstName = '李 昊'
+            this.fullName_1 = '李 昊'
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

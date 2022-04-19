@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      您的问题：<input type="text" v-model="message" />
+
+      <button @click="seachResult">查找答案</button>
+    </template>
+    <script src="../../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: "#my-app",
+        data() {
+          return {
+            message: "Hello World",
+          };
+        },
+        methods: {
+          seachResult() {
+            console.log(this.message);
+          },
+        },
+        watch: {
+          message: {
+            handler(newValue) {
+              console.log(newValue);
+            },
+            deep: true,
+          },
+          message(newVal, oldVal) {
+            console.log(oldVal + "--->" + newVal);
+            this.seachResult();
+          },
+          // message:'123465'
+        },
+      };
+
+      Vue.createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
