@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <!-- 1. textarea -->
+      <label for="intor">
+        介绍：
+        <textarea name="intor" id="intor" v-model="intor"></textarea>
+      </label>
+      <h4>intor: {{intor}}</h4>
+
+      <!-- checkbox 一个选框 -->
+      <label for="check">
+        <input id="check" type="checkbox" v-model="isAgree" /> 统一歇息
+      </label>
+      <h4>isAgree:{{isAgree}}</h4>
+
+      <!-- checkbox 多选框 -->
+      <span>爱好</span>
+      <label for="basketball">
+        <input
+          id="basketball"
+          type="checkbox"
+          v-model="hobbies"
+          value="basketball"
+        />
+        basketball
+      </label>
+      <label for="football">
+        <input
+          id="football"
+          type="checkbox"
+          v-model="hobbies"
+          value="football"
+        />
+        football
+      </label>
+      <label for="pinpeng">
+        <input id="pinpeng" type="checkbox" v-model="hobbies" value="pinpeng" />
+        pinpeng
+      </label>
+      <label for="computed">
+        <input
+          id="computed"
+          type="checkbox"
+          v-model="hobbies"
+          value="computed"
+        />
+        computed
+      </label>
+      <h4>hobbies:{{hobbies}}</h4>
+
+      <!-- radio 单选框  -->
+      <label for="nan">
+        <input id="nan" type="radio" v-model="gender" value="nan" /> nan
+      </label>
+      <label for="nv">
+        <input id="nv" type="radio" v-model="gender" value="nv" /> nan
+      </label>
+      <h4>gender:{{gender}}</h4>
+
+      <!-- select -->
+      <span>水果</span>
+      <select v-model="fruit" multiple size="2">
+        <template v-for="item in fruits">
+          <option :key="item" :value="item">{{item}}</option>
+        </template>
+        <!-- <option value="banana">banana</option> -->
+        <!-- <option value="orange">orange</option> -->
+      </select>
+      <h4>fruit:{{fruit}}</h4>
+    </template>
+    <script src="../../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello World',
+            intor: '',
+            isAgree: true,
+            hobbies: ['football'],
+            gender: '',
+            fruit: '',
+            fruits: ['apple', 'banana', 'orange']
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>

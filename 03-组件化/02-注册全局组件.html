@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <h2>{{message}}</h2>
+      <component-a></component-a>
+      <component-a></component-a>
+      <component-a></component-a>
+      <component-a></component-a>
+      <component-a></component-a>
+    </template>
+
+    <template id="component-a">
+      <h2>组件 {{title}}</h2>
+      <component-b></component-b>
+    </template>
+
+    <template id="component-b">
+      <h3 style="color: pink"> ---ls&;组件 {{title}}</h3>
+      <!-- <ComponentC></ComponentC> -->
+      <component-c></component-c>
+    </template>
+
+    <template id="component-c">
+      <h4 style="color: pink"> ComponentC </h3>
+    </template>
+    <script src="../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello World'
+          }
+        }
+      }
+
+      const app = Vue.createApp(App)
+
+      // app.component('组件名称','组件对象')
+      // 全局组件，可以在任何组件中使用
+      app.component('component-a', {
+        template: '#component-a',
+        data() {
+          return { title: 'component-a' }
+        }
+      })
+
+      app.component('component-b', {
+        template: '#component-b',
+        data() {
+          return { title: 'component-b' }
+        }
+      })
+
+
+      app.component('ComponentC', {
+        template: '#component-c',
+        data() {
+          return { title: 'ComponentC' }
+        }
+      })
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>

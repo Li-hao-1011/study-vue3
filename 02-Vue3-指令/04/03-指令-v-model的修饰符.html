@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="my-app">
+      <!-- 
+        .lazy: 转为在 change 事件之后进行同步
+        .number: 当输入类型为 text 时这通常很有用。如果输入类型是 number，Vue 能够自动将原始字符串转换为数字，无需为 v-model 添加 .number 修饰符。如果这个值无法被 parseFloat() 解析，则返回原始的值。
+        .trim: 自动过滤用户输入的首尾空白字符，
+       -->
+      <div>
+        <input type="text" v-model.lazy="message" />
+        <h2>{{message}}</h2>
+      </div>
+
+      <div>
+        <button @click="lookType">查看类型</button>
+        <input type="text" v-model.lazy.number="message" />
+        <h2>{{message}}</h2>
+      </div>
+
+      <div>
+        <button @click="lookType">查看类型</button>
+        <input type="text" v-model.trim="message" />
+        <h2>{{message}}</h2>
+      </div>
+    </template>
+    <script src="../../js/vue3.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 0
+          }
+        },
+        methods: {
+          lookType() {
+            console.log(this.message, typeof this.message)
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app')
+    </script>
+  </body>
+</html>
