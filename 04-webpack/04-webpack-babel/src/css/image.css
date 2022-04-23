@@ -1,0 +1,7 @@
+.image-bg {
+  background-image: url('../img/01.png');
+  /* background-image: url('../img/02.jpg'); */
+  width: 1500px;
+  height: 500px;
+  transform: scale(0.6, 0.5);
+}
