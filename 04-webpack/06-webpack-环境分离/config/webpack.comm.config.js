@@ -1,23 +1,18 @@
 const { resolve } = require("path");
 
 // 导入插件
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const { DefinePlugin } = require("webpack");
 
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-
 const { VueLoaderPlugin } = require("vue-loader/dist/index");
 
 module.exports = {
   target: "web",
-  mode: "development",
-  devtool: "source-map",
   entry: "./src/main.js",
   output: {
-    path: resolve(__dirname, "./my_build_dist"),
+    path: resolve(__dirname, "../my_build_dist"),
     filename: "js/my_build.js",
   },
 
@@ -157,8 +152,7 @@ module.exports = {
   },
   plugins: [
     // 插件对象
-    // CleanWebpackPlugin 删除对应的文件夹
-    new CleanWebpackPlugin(),
+
     // 生成html文件，默认是使用 ejs 模板生成
     /* new HtmlWebpackPlugin() */
     // 自定义生成 html 文件的 模板
@@ -173,60 +167,14 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: false,
     }),
 
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "public",
-          to: "./",
-          globOptions: {
-            ignore: ["**/index.html"],
-          },
-        },
-      ],
-    }),
-
     new VueLoaderPlugin(),
   ],
 
-  devServer: {
-    // 运行时代码的目录
-    /* 
-      通过devserve启动服务时，后台默认开启express服务，通过本地端口访问该项目，
-      遇到不能加载的文件时则通过 contentBase 路径下查找
-    */
-    // contentBase: resolve(__dirname, "public"),
-    static: resolve(__dirname, "public"),
-
-    // 模块热替换 HMR
-    /* 
-    模块热替换是指在 应用程序运行过程中，替换、添加、删除模块，而无需重新刷新整个页面；
-    */
-    hot: true,
-    host: "0.0.0.0",
-    port: 5000,
-
-    // gzip压缩
-    compress: true,
-
-    proxy: {
-      "/api": {
-        target: "http://localhost:8888",
-        pathRewrite: {
-          "^/api": "",
-        },
-        // 默认情况下不接受转发 https的服务器，设置为false即可转发
-        secure: "false",
-
-        changeOrigin: true,
-      },
-    },
-
-    resolve: {
-      extensions: [".js", ".vue", ".mjs"],
-      alias: {
-        '@js': resolve(__dirname, "./src/js"),
-        "@": resolve(__dirname, "./src"),
-      },
+  resolve: {
+    extensions: [".js", ".vue", ".mjs"],
+    alias: {
+      "@js": resolve(__dirname, "../src/js"),
+      "@": resolve(__dirname, "../src"),
     },
   },
 };

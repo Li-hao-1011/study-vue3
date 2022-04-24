@@ -220,13 +220,13 @@ module.exports = {
         changeOrigin: true,
       },
     },
+  },
 
-    resolve: {
-      extensions: [".js", ".vue", ".mjs"],
-      alias: {
-        '@js': resolve(__dirname, "./src/js"),
-        "@": resolve(__dirname, "./src"),
-      },
+  resolve: {
+    extensions: [".js", ".vue", ".mjs"],
+    alias: {
+      "@js": resolve(__dirname, "./src/js"),
+      "@": resolve(__dirname, "./src"),
     },
   },
 };
