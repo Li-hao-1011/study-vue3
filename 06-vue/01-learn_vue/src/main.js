@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
 // import App from './01-拆分组件/App.vue'
 
@@ -28,6 +28,8 @@ import { createApp } from 'vue'
 
 // import App from './10-组件生命周期/App.vue'
 
-import App from './11-组件的v-model/App.vue'
+// import App from './11-组件的v-model/App.vue'
 
-createApp(App).mount('#app')
+import App from "./12-绑定多个属性/App.vue";
+
+createApp(App).mount("#app");

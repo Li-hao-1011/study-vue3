@@ -21,7 +21,7 @@
     <keep-alive include="Home,About">
       <component
         :is="currentTab"
-        name="lhhhh"
+        :name="currentTab"
         :age="18"
         @page-click="handlerClick"
       ></component>
