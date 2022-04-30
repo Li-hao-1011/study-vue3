@@ -1,0 +1,20 @@
+{
+  "name": "02-vue_animation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1",
+    "core-js": "^3.8.3",
+    "gsap": "^3.10.4",
+    "lodash": "^4.17.21",
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0"
+  }
+}

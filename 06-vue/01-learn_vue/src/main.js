@@ -30,6 +30,8 @@ import { createApp } from "vue";
 
 // import App from './11-组件的v-model/App.vue'
 
-import App from "./12-绑定多个属性/App.vue";
+// import App from "./12-绑定多个属性/App.vue";
+
+import App from './13-动画与过度/App.vue'
 
 createApp(App).mount("#app");
