@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { watch, reactive, ref, shallowRef, isReactive } from "vue";
+import { watch, reactive, isReactive, ref } from "vue";
 
 export default {
   setup() {
@@ -37,7 +37,7 @@ export default {
       },
       {
         deep: true,
-        // immediate: true,
+        immediate: true,
       }
     );
 
@@ -48,12 +48,7 @@ export default {
       // console.log("456", name.value);
     };
 
-    // const foo = shallowRef({ name: 123 });
-    // console.log(isReactive(foo),foo.value);
 
-    // foo.value = {};
-    // console.log(isReactive(foo),foo.value);
-    // console.log(isReactive(foo.value));
 
     return { changeInfo };
   },
