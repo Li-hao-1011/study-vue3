@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./renderer.js"></script>
+
+    <script>
+      // 通过 h函数生成vnode
+      const vnode = h("div", { class: "why" }, [
+        h("h2", { id: "count" }, "100"),
+        h(
+          "button",
+          {
+            onClick: function () {
+              const el = document.getElementById("count");
+              const text = parseInt(el.textContent);
+              console.log(text);
+              el.textContent = text + 1;
+            },
+          },
+          "+1"
+        ),
+        h("div", { style: "width:100px,height:200px,background-color: pink" }, [
+          h("h2", null, "这是一个副标题"),
+          h("ul", null, [
+            h("li", null, "球类运动"),
+            h("li", { style: "list-style:none" }, [
+              h("ul", null, [
+                h("li", null, "篮球"),
+                h("li", null, "足球"),
+                h("li", null, "乒乓球"),
+                h("li", null, "羽毛球"),
+                h("li", null, "排球"),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]);
+
+      // 通过mount函数，将vnode挂载到div#app上
+      mount(vnode, document.getElementById("app"));
+
+      /*    function a() {
+        const el = document.getElementById("count");
+        const text = parseInt(el.textContent);
+        el.textContent = text + 1;
+      } */
+    </script>
+  </body>
+</html>
