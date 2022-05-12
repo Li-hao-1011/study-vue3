@@ -1,5 +1,5 @@
 <template>
-  <div>User: {{ $route.params.username }} - {{ $route.params.id }}</div>
+  <h3>User: {{ $route.params.username }} - {{ $route.params.id }}</h3>
 </template>
 
 <script>
@@ -17,4 +17,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

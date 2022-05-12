@@ -54,4 +54,11 @@ const router = createRouter({
   // history: createWebHashHistory(),
 });
 
+// 导航守卫
+router.beforeEach((to, from) => {
+  console.log("router beforeEach", to, from);
+
+  return false;
+});
+
 export default router;
