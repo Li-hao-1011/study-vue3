@@ -5,6 +5,12 @@
   <h2>自定义折扣：{{ $store.getters.customDiscount(0.9) }}</h2>
   <hr />
   <h2>总价格：{{ totalPrice }}</h2>
+  <!-- <h2>折扣：{{ currentDiscount }}</h2> -->
+  <!-- <h2>自定义折扣：{{ customDiscount(0.9) }}</h2> -->
+  <hr />
+  <!-- <h2>总价格：{{ _totalPrice }}</h2> -->
+  <!-- <h2>折扣：{{ _currentDiscount }}</h2> -->
+  <!-- <h2>自定义折扣：{{ _customDiscount(0.9) }}</h2> -->
 </template>
 
 <script>
@@ -29,6 +35,9 @@ export default {
     }),
   }, */
   setup() {
+
+    // const totalPrice = computed(() => store.getters.totalPrice);
+
     const getters = useGetters([
       "totalPrice",
       "currentDiscount",
