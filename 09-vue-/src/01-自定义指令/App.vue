@@ -3,6 +3,8 @@
     <h1 v-format-time="'YYYY/MM/DD'">{{ timer }}</h1>
     <h1 v-format-time>{{ timer }}</h1>
     <h1 v-format-time="''">{{ timer }}</h1>
+
+    <hr />
   </div>
 </template>
 

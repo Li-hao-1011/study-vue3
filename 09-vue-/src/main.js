@@ -4,8 +4,9 @@ import dayjs from "dayjs";
 import pluginObject from './03-Vue插件/plugins/plugins_object'
 
 // import App from "./01-自定义指令/App.vue";
+import App from "./01-自定义指令/04-App_nexttick.vue";
 
-import App from "./02-Teleport/App.vue";
+// import App from "./02-Teleport/App.vue";
 
 const app = createApp(App);
 

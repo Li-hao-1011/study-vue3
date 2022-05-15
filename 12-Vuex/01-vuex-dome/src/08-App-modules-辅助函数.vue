@@ -50,27 +50,8 @@ const {
   mapActions: homeMapActions,
 } = createNamespacedHelpers("home");
 
-import useState from "./hooks/useState";
-import useGettets from "./hooks/useGetters";
-
 export default {
   name: "App",
-
-  setup() {
-    const state = useState("home", ["homeCounter"]);
-    const getters = useGettets("home", ["doubleHomeCounter"]);
-
-    const mutations = homeMapMutations(["increment"]);
-    const actions = homeMapActions(["incrementAction"]);
-
-    return {
-      ...mutations,
-      ...actions,
-      ...state,
-      ...getters,
-    };
-  },
-
   /*   computed: {
     // 写法一
     ...mapState({
@@ -91,11 +72,11 @@ export default {
     ...mapGetters("home", ["doubleHomeCounter"]),
   }, */
 
-  /*   computed: {
+  computed: {
     // 写法三
     ...homeMapState(["homeCounter"]),
     ...homeMapGetters(["doubleHomeCounter"]),
-  }, */
+  },
 
   /*   methods: {
     // ...mapMutations(["increment"]),
@@ -126,11 +107,11 @@ export default {
     ...mapActions("home", ["incrementAction"]),
   }, */
 
-  /*   methods: {
+  methods: {
     // 写法三
     ...homeMapMutations(["increment"]),
     ...homeMapActions(["incrementAction"]),
-  }, */
+  },
 };
 </script>
 
