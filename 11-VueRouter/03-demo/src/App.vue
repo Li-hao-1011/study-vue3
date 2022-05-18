@@ -16,9 +16,9 @@
 
   <router-view v-slot="props">
     <transition name="lhhh">
-      <!-- <keep-alive> -->
+      <keep-alive>
       <component :is="props.Component"></component>
-      <!-- </keep-alive> -->
+      </keep-alive>
     </transition>
   </router-view>
 </template>
