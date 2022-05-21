@@ -62,4 +62,6 @@ const myType1: WType1 = { swimming() {} };
 
 const myType2: WType2 = { swimming() {}, flying() {} };
 
+document.getElementById
+
 export {};
